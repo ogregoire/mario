@@ -29,13 +29,13 @@ import net.mostlyoriginal.api.system.core.PassiveSystem;
 @Wire
 public class CollisionSystem extends PassiveSystem {
 
-  private ComponentMapper<Bounds> boundMapper;
-  private ComponentMapper<Position> positionMapper;
+  ComponentMapper<Bounds> boundsMapper;
+  ComponentMapper<Position> positionMapper;
 
   public final boolean overlaps(final Entity a, final Entity b) {
-    final Bounds aBounds = boundMapper.getSafe(a);
+    final Bounds aBounds = boundsMapper.getSafe(a);
     final Position aPosition = positionMapper.getSafe(a);
-    final Bounds bBounds = boundMapper.getSafe(b);
+    final Bounds bBounds = boundsMapper.getSafe(b);
     final Position bPosition = positionMapper.getSafe(b);
     if (aBounds == null || aPosition == null || bBounds == null || bPosition == null) {
       return false;
