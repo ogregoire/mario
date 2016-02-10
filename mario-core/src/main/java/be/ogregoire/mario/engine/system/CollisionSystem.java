@@ -27,12 +27,12 @@ import net.mostlyoriginal.api.system.core.PassiveSystem;
  * @author Olivier Grégoire
  */
 @Wire
-public class CollisionSystem extends PassiveSystem {
+public final class CollisionSystem extends PassiveSystem {
 
   ComponentMapper<Bounds> boundsMapper;
   ComponentMapper<Position> positionMapper;
 
-  public final boolean overlaps(final Entity a, final Entity b) {
+  public boolean overlaps(final Entity a, final Entity b) {
     final Bounds aBounds = boundsMapper.getSafe(a);
     final Position aPosition = positionMapper.getSafe(a);
     final Bounds bBounds = boundsMapper.getSafe(b);

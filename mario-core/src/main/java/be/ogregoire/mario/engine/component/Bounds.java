@@ -21,13 +21,32 @@ import com.artemis.Component;
  *
  * @author Olivier Grégoire
  */
-public class Position extends Component {
+public final class Bounds extends Component {
 
-  public float x;
-  public float y;
+  public int left;
+  public int bottom;
+  public int right;
+  public int top;
 
-  public Position(float x, float y) {
-    this.x = x;
-    this.y = y;
+  public Bounds(final int width, final int height) {
+    this.left = 0;
+    this.bottom = 0;
+    this.right = width;
+    this.top = height;
+  }
+
+  public Bounds(final int left, final int bottom, final int right, final int top) {
+    this.left = left;
+    this.bottom = bottom;
+    this.right = right;
+    this.top = top;
+  }
+
+  public int centerX() {
+    return left + (right - left) / 2;
+  }
+
+  public int centerY() {
+    return bottom + (top - bottom) / 2;
   }
 }
